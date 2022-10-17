@@ -1,0 +1,60 @@
+.sign-in-sidebar {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    float: right;
+    margin-top: 3%;
+    width: 100%;
+}
+
+.sign-in-sidebar-textbox {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    text-align: center;
+}
+
+.animated-sidebar-intense{
+    opacity: 0.75;
+    -webkit-transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+}
+.animated-sidebar-intense:hover{
+    opacity: 1.0;
+}
+
+.notice-sidebar {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    float: left;
+    margin-top: 3%;
+    width: 100%;
+}
+
+.sign-in-sidebar-buttons {
+    font-size: 16px;
+    margin: 1%;
+}
+
+.player-info-sidebar {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    float: right;
+    margin-top: 3%;
+    width: 100%;
+}
+
+.player-avatar {
+    width: 64px;
+    height: 64px;
+    /* border-radius: 50%; */
+    float: center;
+    margin: auto;
+    margin-top:1%
+}
+
+.player-badge-font-size {
+    font-size: 16px;
+}

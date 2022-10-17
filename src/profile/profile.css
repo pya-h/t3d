@@ -1,0 +1,87 @@
+.profile-panel-sidebar {
+    height: 90vh; /*what to do about this*/
+    border-radius: 10px;
+    margin: auto;
+    background-color: black ;
+    text-align: right;
+    margin-top:2%;
+    padding: 3%;
+    opacity: 0.8;
+}
+
+.profile-panel-sidebar button {
+    /* all buttons inside the panel menu */
+    border: none;
+}
+
+.notice-manager-card {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 1%;
+    height: 90vh;
+}
+
+.icon-edit-notice {
+    cursor: pointer;
+}
+.icon-edit-notice:hover {
+    color: orange;
+}
+
+.big-single-card {
+    margin: auto;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 1%;
+}
+
+.account-info-textbox {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    text-align: right;
+    margin-top: 1%;
+}
+
+.friend-records {
+    color: black;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.friends-section-avatar {
+    width: 128px;
+    height: 128px;
+    /* border-radius: 50%; */
+    float: center;
+    margin: auto;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+
+.friend-badge-font-size {
+    font-size: 16px;
+}
+
+.tabs-list-friends-in-games-scrollable {
+/* .nav nav-items{ */
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.icon-unfriend {
+    cursor: pointer;
+    font-size: 20px;
+    color: black; 
+    /* how to hide? */
+    /* color: white; */
+}
+.icon-unfriend:hover {
+    color: red;
+}
+
+.friend-games-box-scrollable {
+    height: 500px;
+    overflow-y: scroll;
+}
