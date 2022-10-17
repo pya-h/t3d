@@ -1,0 +1,19 @@
+.sign-up-card {
+    background-color: white;
+    color: black;
+    width: 100%;
+    border-radius: 10px;
+    padding: 2%;
+    text-align: center;
+    margin: auto;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.sign-up-textbox {
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    text-align: left;
+    
+}

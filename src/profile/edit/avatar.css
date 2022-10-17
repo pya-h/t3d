@@ -1,0 +1,28 @@
+.dropbox-rectangle {
+    border: 1px solid green;
+    border-radius: 10px;
+    margin-left: 3%;
+    width: 100%;
+    text-align: center;
+
+}
+.file-picker-control{
+    opacity: 0.0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    cursor: pointer;
+} 
+.dropbox-rectangle:hover {
+    background-color: lightgray;
+}
+
+.file-picker-label{
+    border-radius: 10px;
+    max-width: 95%;
+    margin-top: 3%;
+    padding: 2%;
+    text-align: center;
+    cursor: pointer;
+}
