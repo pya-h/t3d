@@ -2,11 +2,13 @@
     "name": "t3d",
     "version": "0.2.0",
     "private": true,
+    "homepage": "https://pya-h.github.io/t3d",
     "dependencies": {
         "@testing-library/jest-dom": "^5.11.4",
         "@testing-library/react": "^11.1.0",
         "@testing-library/user-event": "^12.1.10",
         "axios": "^0.22.0",
+        "gh-pages": "^4.0.0",
         "jwt-decode": "^3.1.2",
         "react": "^17.0.2",
         "react-bootstrap": "^1.6.4",
@@ -31,7 +33,9 @@
         "start": "PORT=4190 react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "eslintConfig": {
         "extends": [
