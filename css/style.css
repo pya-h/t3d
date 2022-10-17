@@ -1,0 +1,75 @@
+@font-face {
+    font-family: 'Vazir-Bold';
+    src: url('../fonts/Vazir-Bold.eot') format("eot"),
+        url('../fonts/Vazir-Bold.ttf') format("truetype"),
+        url('../fonts/Vazir-Bold.woff') format("woff"),
+        url('../fonts/Vazir-Bold.woff2') format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    box-sizing: border-box;
+    width:'100%';
+    word-wrap: 'break-word';
+    word-break: 'break-all';
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+body {
+    width: auto;
+    background-color: white !important;
+    background: url('../img/wall.jpg');
+    color: black;
+    direction: rtl;
+    font-family: 'Vazir-Bold' !important;
+    font-size: 16px !important;
+}
+
+.animated-textbox{
+    margin-left:auto;
+    margin-right: auto;
+    width: 85%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+.animated-textbox:focus{
+    width: 100%;
+}
+
+.animated-button{
+    margin-left:auto;
+    margin-right: auto;
+    width: 90%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+.animated-button:hover{
+    width: 100%;
+}
+
+.animated-navitem{
+    margin-left:auto;
+    margin-right: auto;
+    width: 90%;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+.animated-navitem:hover{
+    width: 100%;
+}
+.animated-navitem:focus{
+    width: 100%;
+}
+
+.animated-form{
+    opacity: 0.85;
+    -webkit-transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+}
+.animated-form:hover{
+    opacity: 1.0;
+}
+
+:invalid {
+    border-color: red !important;
+}
