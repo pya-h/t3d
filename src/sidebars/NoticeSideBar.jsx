@@ -11,16 +11,20 @@ const NoticeSideBar = () => {
     useEffect(() => {
         (async () => {
             try {
+                setNotices([{
+                    title: "درحال بارگذاری",
+                    text: "لطفا کمی صبر کنید...",
+                }]);
                 const { status, data } = await noticeServices.getShortNotices();
                 if (status === Configs.Status.Successful) {
                     //return data.notices;
                     
                     if (data.notices.length) setNotices([...data.notices.reverse()]);
                     //if all is empty
-                    if(data.notices.length === 0) {
+                    else {
                         setNotices([{
                             title: "پیام",
-                            text: "اطلاعیه جدیدی وجود ندارد",
+                            text: "اطلاعیه جدیدی وجود ندارد.",
                         }]);
                     }
                 }
