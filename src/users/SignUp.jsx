@@ -124,7 +124,7 @@ class SignUp extends Component {
 											"First name must be at least 3 characters long."
 										)
 									}
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="First Name"
 									value={firstname}
 									required="required"
@@ -144,7 +144,7 @@ class SignUp extends Component {
 							<Col>
 								<Form.Control
 									type="text"
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									pattern="[A-Za-z '\-]{2,}" // latin characters and space
 									onInput={(e) =>
 										e.target.setCustomValidity("")
@@ -182,7 +182,7 @@ class SignUp extends Component {
 											"Student number must be exactly 8 digits."
 										)
 									}
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="Student ID"
 									value={studentID}
 									autoComplete="username"
@@ -212,7 +212,7 @@ class SignUp extends Component {
 											"Please enter a valid email address (at least 6 characters)."
 										)
 									}
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="E-mail"
 									value={email}
 									required="required"
@@ -239,7 +239,7 @@ class SignUp extends Component {
 											"Password must be between 6 and 15 characters."
 										)
 									}
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="Password"
 									value={password}
 									autoComplete="new-password"
@@ -260,7 +260,7 @@ class SignUp extends Component {
 							<Col>
 								<Form.Control
 									type="password"
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="Confirm Password"
 									value={confirmPassword}
 									required="required"

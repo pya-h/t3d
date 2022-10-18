@@ -1,5 +1,5 @@
 const ClientRoutes = require('./client');
-const ServerRoutes = require('./local');
+const ServerRoutes = require('./server');
 const Status = require('./status');
 const browserStorage = require('./browser');
 const GameSetting = require('./gamesetting');
