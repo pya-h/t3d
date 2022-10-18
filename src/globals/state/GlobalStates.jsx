@@ -10,12 +10,11 @@ import { Sorry } from "./../../tools/notification";
 import { EnterLeague } from './../redux/actions/league';
 const GlobalStates = ({ children, history }) => {
 	const isDesktop = useMediaQuery({ query: "(min-width: 1200px)" });
-	const isSmartPhone = useMediaQuery({ query: "(max-width: 768px)" });
+	const isSmartPhone = useMediaQuery({ query: "(max-width: 850px)" });
 	const isTablet = !isDesktop && !isSmartPhone;
 	const [device, setDevice] = useState(null);
 	const dispatch = useDispatch();
 
-	console.log("GlobalStates rendered"); //s
 	useEffect(() => {
 		// find device mode
 		// array is sorted according to Configs.Devices

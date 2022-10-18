@@ -11,13 +11,17 @@ const NoticeSideBar = () => {
     useEffect(() => {
         (async () => {
             try {
+                setNotices([{
+                    title: "Loading",
+                    text: "Please wait a moment...",
+                }]);
                 const { status, data } = await noticeServices.getShortNotices();
                 if (status === Configs.Status.Successful) {
                     //return data.notices;
                     
                     if (data.notices.length) setNotices([...data.notices.reverse()]);
                     //if all is empty
-                    if(data.notices.length === 0) {
+                    else {
                         setNotices([{
                             title: "Message",
                             text: "No new notices.",

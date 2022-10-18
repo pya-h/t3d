@@ -25,11 +25,11 @@ const MainLayout = (props) => {
 	useEffect(() => {
 		setLeftSideBar(<NoticeSideBar />);
 		const setPrimaryRightSideBar = () => {
-			if (device !== Devices.Tablet)
+			// if (device !== Devices.Tablet)
 				setRightSideBar(
 					me ? <PlayerInfoSideBar /> : <SignInSideBar />
 				);
-			else setRightSideBar(null);
+			// else setRightSideBar(null);
 		};
 		if (pathname === Routes.Client.SignUp) {
 			setRightSideBar(null);
@@ -58,7 +58,7 @@ const MainLayout = (props) => {
 			<AutoSignIn />
 			{context.device !== Devices.SmartPhone ? (
 				<Row className="w-100 mx-auto p-0">
-					{rightSideBar && <Col lg={3}>{rightSideBar}</Col>}
+					{context.device === Devices.Desktop && <Col lg={3}>{rightSideBar}</Col>}
 					<Col
 						className="mx-auto"
 						lg={pathname !== Routes.Client.SignUp ? null : 7}>
@@ -66,6 +66,7 @@ const MainLayout = (props) => {
 					</Col>
 					{leftSideBar && (
 						<Col className="p-0 pl-2" lg={3} md={4}>
+							{context.device === Devices.Tablet && rightSideBar}
 							{leftSideBar}
 						</Col>
 					)}
