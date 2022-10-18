@@ -124,7 +124,7 @@ class SignUp extends Component {
 											"نام باید با حروف فارسی و با حداقل طول سه حرف باشد"
 										)
 									}
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="First Name"
 									value={firstname}
 									required="required"
@@ -144,7 +144,7 @@ class SignUp extends Component {
 							<Col>
 								<Form.Control
 									type="text"
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									pattern="[آ-ی ]{3,}" // persian characters and space
 									onInput={(e) =>
 										e.target.setCustomValidity("")
@@ -182,7 +182,7 @@ class SignUp extends Component {
 											"شماره دانشجویی باید یک عدد 8 رقمی باشد"
 										)
 									}
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="Student ID"
 									value={studentID}
 									autoComplete="username"
@@ -212,7 +212,7 @@ class SignUp extends Component {
 											"ورودی باید فرمت معتبر ایمیل را رعایت کرده و حداقل 6 کاراکتر باشد"
 										)
 									}
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="E-mail"
 									value={email}
 									required="required"
@@ -239,7 +239,7 @@ class SignUp extends Component {
 											"رمز عبور باید حداقل 6 کاراکتر و حداکثر 15 کاراکتر داشته باشد"
 										)
 									}
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="Password"
 									value={password}
 									autoComplete="new-password"
@@ -260,7 +260,7 @@ class SignUp extends Component {
 							<Col>
 								<Form.Control
 									type="password"
-									className="sign-up-textbox animated-textbox"
+									className="sign-up-textbox animated-textbox text-center"
 									placeholder="Confirm Password"
 									value={confirmPassword}
 									required="required"
