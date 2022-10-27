@@ -54,7 +54,7 @@ class SignInSideBar extends Component {
 						<Form.Control
 							type="text"
 							autoComplete="username"
-							className="sign-in-sidebar-textbox"
+							className="sign-in-sidebar-textbox txt-shaking"
 							placeholder="شماره دانشجویی"
 							value={studentID}
 							onChange={(e) =>
@@ -65,7 +65,7 @@ class SignInSideBar extends Component {
 						<Form.Control
 							type="password"
 							autoComplete="current-password"
-							className="sign-in-sidebar-textbox"
+							className="sign-in-sidebar-textbox txt-shaking"
 							placeholder="رمز عبور"
 							value={password}
 							onChange={(e) =>

@@ -64,14 +64,11 @@ class ModalSignIn extends Component {
 						<Form
 							className="m-4 text-right"
 							onSubmit={(event) => this.onSignInSubmitted(event)}>
-							<Form.Group className="mb-3 form-inline">
-								<Form.Label className="w-25">
-									شماره دانشجویی
-								</Form.Label>
+
 								<Form.Control
 									type="text"
-									className="w-75 text-left"
-									placeholder="Student ID"
+									className="text-center txt-shaking"
+									placeholder="شماره دانشجویی"
 									autoComplete="username"
 									value={studentID}
 									onChange={(e) =>
@@ -80,18 +77,12 @@ class ModalSignIn extends Component {
 										})
 									}
 								/>
-							</Form.Group>
+<br />
 
-							<Form.Group
-								className="mb-3 form-inline"
-								controlId="formBasicPassword">
-								<Form.Label className="w-25">
-									رمز عبور
-								</Form.Label>
 								<Form.Control
 									type="password"
-									className="w-75 text-left"
-									placeholder="Password"
+									className="text-center txt-shaking"
+									placeholder="رمز عبور"
 									autoComplete="current-password"
 									value={password}
 									onChange={(e) =>
@@ -99,8 +90,8 @@ class ModalSignIn extends Component {
 											password: e.target.value,
 										})
 									}
-								/>
-							</Form.Group>
+									/>
+
 							<hr />
 							<Row className="p-0">
 								<Col className="text-center">
