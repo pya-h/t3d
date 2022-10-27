@@ -73,3 +73,36 @@ body {
 :invalid {
     border-color: red !important;
 }
+
+
+.btn-shaking {
+    margin: auto;
+    width:100%;
+}
+.btn-shaking:hover {
+    animation: shake-anim 0.5s linear infinite;
+}
+
+.txt-shaking {
+    margin: auto;
+    transition: background-color 2s;
+}
+.txt-shaking:hover {
+    background: royalblue;
+    color: white;
+}
+.txt-shaking:focus {
+    animation: shake-anim 0.5s linear infinite;
+}
+
+@keyframes shake-anim{
+    0%{
+        width: 100%;
+    }
+    50% {
+        width: 90%;
+    }
+    100%{
+        width: 100%;
+    }
+}
