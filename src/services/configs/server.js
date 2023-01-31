@@ -1,6 +1,7 @@
 //server routes
 module.exports = {
-    Root: "https://t3dweb.herokuapp.com",
+    // Root: "https://t3dweb.herokuapp.com",
+    Root: "https://t3d.iran.liara.run",
     WebSocketRoot: "wss://t3dweb.herokuapp.com/ws",
     wsGamePlayRoute: "gameplay",
     wsGlobalRoute: "global",
