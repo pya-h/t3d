@@ -1,12 +1,13 @@
 import { Card, Row } from "react-bootstrap";
 import "./matches.css";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { toTimeShort } from "../../tools/format";
 import leagueServices from "../../services/http/leagueServices";
 import { browserStorage, Status } from "../../services/configs";
 import { Sorry } from "../../tools/notification";
+import { AttendLeagueGame } from "../../globals/redux/actions/tools";
 
 const attendThisGame = async () => {
     // trig event in GlobbalSocket to create the room for game
@@ -32,7 +33,7 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
     const me = useSelector((state) => state.me);
     const [onClickForThis, setOnClickForThis] = useState(false);
     const [cardColor, setCardColor] = useState(null);
-
+    const dispatch = useDispatch();
     // change this structure to remove using of context
 
     useEffect(() => {
@@ -54,7 +55,7 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
     return (
         <Card
             bg={cardColor}
-            onClick={onClickForThis ? attendThisGame : null}
+            onClick={!onClickForThis ? null : () => dispatch(AttendLeagueGame(browserStorage.LEAGUE()))}
             border="primary"
             className="single-match-card"
         >

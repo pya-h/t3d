@@ -67,6 +67,7 @@ export const RejectGameInvitation = () => {
 
 export const AcceptInvitation = (inviterID, gameType) => {
     return async(dispatch, getState) => {
+        // ********* CHECK leagueToAttend value and decide whar *********************//
         const tools = {...(getState().tools) };
         tools.acceptedGame = { inviterID, type: gameType };
         tools.gameInvitation = null;
@@ -90,3 +91,14 @@ export const ReloadRecords = () => {
         await dispatch({ type: "UPDATE_TOOLS", payload: tools });
     };
 };
+
+export const AttendLeagueGame = (leagueId) => {
+    return async(dispatch, getState) => {
+        const tools = { ...(getState().tools) };
+        tools.gameInvitation = null;
+        tools.acceptedGame = null;
+        tools.friendlyGameTarget = null;
+        tools.leagueToAttend = leagueId;
+        await dispatch({ type: "UPDATE_TOOLS", payload: tools })
+    }
+}

@@ -6,6 +6,7 @@ export const toolsReducer = (
 		gameInvitation: null,
 		acceptedGame: null,
 		recordReloadTrigger: false,
+		leagueToAttend: null //conatins the league id, the one that player has a game on!
 	},
 	action
 ) => {
