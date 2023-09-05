@@ -3,9 +3,9 @@ import SingleRankCard from "./SingleRankCard";
 
 const Rankings = ({ players, rankByProgress }) => {
 	return (
-		<Card border="dark" style={{ width: "100%", borderRadius: "5px" }}>
+		<Card border="dark" style={{ width: "100%", borderRadius: "5px", lineHeight: "5rem" }}>
 			<Card.Header className="text-center">رده بندی</Card.Header>
-			<table className="table table-striped table-bordered table-hover text-center">
+			<table style={{lineHeight: "5rem"}} className="table table-striped table-bordered table-hover text-center">
 				<thead className="bg-info">
 					<tr>
 						<th scope="col">#</th>

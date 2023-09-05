@@ -54,7 +54,7 @@ class SignUp extends Component {
 			try {
 				this.setState({ loading: true });
 				const newUser = {
-					studentID: Number(studentID),
+					studentID: +studentID,
 					password,
 					email,
 					fullname: (firstname + " " + lastname).replace(/\s+/g, " "), // correct? (iterative?)

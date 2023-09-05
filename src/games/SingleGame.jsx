@@ -26,7 +26,7 @@ const SingleGame = () => {
 			dispatch(
 				EnterRoom({
 					name: null,
-					type: dimension,
+					dimension,
 					scoreless: isScoreless,
 				})
 			);

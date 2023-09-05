@@ -49,7 +49,7 @@ class MultiGamePlay extends Component {
 
     updateGameScorebaord = () => {
         const { myTurn, players } = this.state;
-        const oppTurn = Number(!myTurn);
+        const oppTurn = +!myTurn;
 
         this.props.UpdateScoreboard({
             me: {
@@ -123,7 +123,7 @@ class MultiGamePlay extends Component {
 
                 const { opponent, LoadThisPlayer, game, RegisterMultiplayer } =
                     this.props;
-                const opponentID = IDs[Number(!myTurn)];
+                const opponentID = IDs[+!myTurn];
                 if (!surrender) {
                     //ithink !surrender must be removed
                     //if opponent is not null -> means this was called before and there's no need to run again
@@ -143,7 +143,7 @@ class MultiGamePlay extends Component {
                     const { room, me } = this.props;
                     const { dimension } = this.state;
                     const { newMove, t0 } = msg;
-                    const cellID = Number(newMove.cellIndex);
+                    const cellID = +newMove.cellIndex;
 
                     //*************** */
                     //is this needed to check the move in client? considering that complete check has been made in client
@@ -253,7 +253,7 @@ class MultiGamePlay extends Component {
         this.cellButtons = document.getElementsByClassName("game-table-cells"); // pay attension to searched className! may cause an error
 
         const { room } = this.props;
-        this.setState({ dimension: room.type });
+        this.setState({ dimension: room.dimension });
         this.loadCurrentGame();
 
         this.setState({
@@ -345,7 +345,10 @@ class MultiGamePlay extends Component {
     onCloseGame = () => {
         this.state.socketGamePlay.close();
         this.setState({ socketGamePlay: null });
+        console.log(this.props)
+
         setTimeout(() => {
+            console.log(this.props)
             this.props.CloseOngoingGame();
             this.props.history.replace("/"); // in competition mode must be send back to competition page
         }, 3000);

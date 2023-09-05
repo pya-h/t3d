@@ -1,4 +1,4 @@
-import {browserStorage, Routes} from '../configs';
+import { browserStorage, Routes } from '../configs';
 
 export const createSocketRequest = (request, rname, msg) =>
     JSON.stringify({
@@ -12,7 +12,7 @@ export const connect = (room) => {
     return new Promise((resolve, reject) => {
         var server = new WebSocket(`${Routes.Server.WebSocketRoot}/${Routes.Server.wsGamePlayRoute}`);
         server.onopen = () => {
-            server.send(createSocketRequest("join", room.name, {gameType: room.type, scoreless: room.scoreless})); //temp
+            server.send(createSocketRequest("join", room.name, { gameType: room.dimension, scoreless: room.scoreless, gameID: room.gameID, leagueID: room.leagueID })); //temp
             resolve(server);
         };
 
@@ -23,7 +23,7 @@ export const connect = (room) => {
         };
 
         server.onclose = () => {
-            
+
             resolve(null);
             // this part needs editing ? maybe not
         };

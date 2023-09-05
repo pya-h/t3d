@@ -24,7 +24,7 @@ export const T3DLogic = {
         return { floor: cellFloor, row: cellRow, column: cellColumn };
     },
     endThisGame: ({ players, myTurn }, onClose) => {
-        const oppTurn = Number(!myTurn);
+        const oppTurn = +!myTurn;
         //NOTE: u can deliver this message to socket global to make sure toast shows all the tie but its no need really :|
         if (players[myTurn].score > players[oppTurn].score)
             Notify("شما برنده شدید و سه امتیاز کسب کردید");

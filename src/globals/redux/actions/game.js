@@ -1,17 +1,20 @@
 import { LoadThisPlayer } from "./player";
 import { Sorry, Notify } from "../../../tools/notification";
 import { T3DLogic } from '../../../games/gameplay/GameLogics';
-export const EnterRoom = ({ name, type, scoreless }) => {
+import { EndLeagueGame } from "./tools";
+
+export const EnterRoom = (room) => {
     return async(dispatch, getState) => {
         const me = getState().me;
+
         try {
             await dispatch({
                 type: "ENTER_ROOM",
-                payload: { name, type, scoreless },
+                payload: room,
             });
             // now dispatch opponent
-            if (name) {
-                const rivalID = name
+            if (room.name) {
+                const rivalID = room.name
                     .split("_")
                     .filter(
                         (playerID) =>
@@ -73,6 +76,8 @@ export const CloseOngoingGame = () => {
             await dispatch({ type: "CLEAN_SCOREBOARD" });
             await dispatch({ type: "EXIT_ROOM" });
             await dispatch({ type: "RESET_OPPONENT" });
+            await dispatch(EndLeagueGame());
+            console.log("GAME CLOSED")
         } catch (err) {
             console.log("closing the ongoing game failed completing cause: ", err);
             Notify("مشکلی حین بستن بازی کنونی پیش آمد.");
