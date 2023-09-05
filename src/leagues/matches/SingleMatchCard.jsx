@@ -3,7 +3,7 @@ import "./matches.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toTimeShort } from "../../tools/format";
+import { toHijri, toTimeShort } from "../../tools/format";
 import leagueServices from "../../services/http/leagueServices";
 import { browserStorage, Status } from "../../services/configs";
 import { Sorry } from "../../tools/notification";
@@ -33,6 +33,8 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
     const me = useSelector((state) => state.me);
     const [onClickForThis, setOnClickForThis] = useState(false);
     const [cardColor, setCardColor] = useState(null);
+    const [hijriDate, setHijriDate] = useState({date: null, time: null});
+
     const dispatch = useDispatch();
     // change this structure to remove using of context
 
@@ -51,6 +53,8 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
                 setOnClickForThis(true);
             }
         }
+        const [date, time] = toHijri(schedule);
+        setHijriDate({time, date});
     }, [schedule, playerX, playerO, me]);
     return (
         <Card
@@ -65,7 +69,7 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
                         {playerX.fullname}
                     </span>
                     <span className="col-lg-2 col-md-2 text-center">
-                        {toTimeShort(schedule)}
+                        {hijriDate.date + " - " + hijriDate.time}
                     </span>
                     <span className="col-lg-5 col-md-6 text-left">
                         {playerO.fullname}

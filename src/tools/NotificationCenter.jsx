@@ -39,7 +39,7 @@ const NotificationCenter = ({ location }) => {
 				Invitation(
 					gameInvitation,
 					() => {
-						dispatch(AcceptInvitation(gameInvitation.ID, gameInvitation.type));
+						dispatch(AcceptInvitation(gameInvitation.ID, gameInvitation.dimension));
 					},
 					() => {
 						dispatch(RejectGameInvitation());

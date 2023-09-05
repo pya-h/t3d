@@ -14,8 +14,6 @@ import {
     EndFriendRequest,
     RecieveGameInvitation,
     ReloadRecords,
-    RepeatRandomSearch,
-    CloseRandomSearch,
     EmptyGameInvitations,
 } from "./../../globals/redux/actions/tools";
 import { EnterRoom } from "../../globals/redux/actions/game";
@@ -51,6 +49,18 @@ const GlobalSocketManager = () => {
                 "global websocket connect called -> new socket returned"
             );
             if (!iamSignedIn) return null; //to make sure just site user trigger this connection
+
+            const loadGame = (room, stats, opponent) => {
+                if (room) {
+                    dispatch(EnterRoom(room));
+
+                    opponent && dispatch(LoadThisPlayer(opponent));
+                }
+                if (stats)
+                    //double check if stats is sent by server, this is for avoiding further crashes
+                    dispatch(UpdateStatistics(stats.players, stats.games));
+            };
+
             return new Promise((resolve, reject) => {
                 try {
                     var socket = new WebSocket(
@@ -82,51 +92,15 @@ const GlobalSocketManager = () => {
                             }
                             case "FIND_RESULT": {
                                 //response from random game request
-                                const { found, stats } = msg;
-                                if (found) {
-                                    dispatch(EnterRoom(found));
-                                    dispatch(CloseRandomSearch());
-                                    msg.opponent &&
-                                        dispatch(LoadThisPlayer(msg.opponent));
-                                } else {
-                                    //search again 5s later
-                                    // **********************
-                                    //time out must be set with rising time out time to prevent server getting fucked up
-                                    setTimeout(() => {
-                                        if (!iamBusy)
-                                            dispatch(RepeatRandomSearch());
-                                    }, 5000);
-                                }
-                                if (stats)
-                                    //double check if stats is sent by server, this is for avoiding further crashes
-                                    dispatch(
-                                        UpdateStatistics(
-                                            stats.players,
-                                            stats.games
-                                        )
-                                    );
-
+                                loadGame(msg?.found, msg?.stats, msg?.opponent);
                                 break;
                             }
                             case "ATTEND_LEAGUE_GAME": {
                                 //response from random game request
-                                const { found, stats } = msg;
+                                const { room, stats } = msg;
                                 // NOTE: REMEMBER TO SAVE GAME ID IN THE LEAGUE AS WELL
-                                if (found) {
-                                    dispatch(EnterRoom(found));
-
-                                    msg.opponent &&
-                                        dispatch(LoadThisPlayer(msg.opponent));
-                                }
-                                if (stats)
-                                    //double check if stats is sent by server, this is for avoiding further crashes
-                                    dispatch(
-                                        UpdateStatistics(
-                                            stats.players,
-                                            stats.games
-                                        )
-                                    );
-
+                                loadGame(room, stats, msg?.opponent);
+                                context.redirectToGamePlay(room);
                                 break;
                             }
                             case "GAME_CANCELLED": {
@@ -297,13 +271,13 @@ const GlobalSocketManager = () => {
     // happens when user clicks on 'Random Game" Tab search button => sends opponent search request to server
     useEffect(() => {
         if (randomSearchRepeats) {
-            if (room.type) {
+            if (room.dimension) {
                 //is it necessary?
                 //completely making sure we're on right stage
                 if (!room.name && iamSignedIn && socketGlobal)
                     socketGlobal.send(
                         pack("find", {
-                            gameType: room.type,
+                            gameType: room.dimension,
                             scoreless: room.scoreless,
                         })
                     );
@@ -337,7 +311,7 @@ const GlobalSocketManager = () => {
                     pack("respond_friendlygame", {
                         answer: true,
                         inviterID: acceptedGame.inviterID,
-                        gameType: acceptedGame.type,
+                        gameType: acceptedGame.dimension,
                     })
                 );
                 dispatch(EmptyGameInvitations());
@@ -345,7 +319,7 @@ const GlobalSocketManager = () => {
                 socketGlobal.send(
                     pack("friendly_game", {
                         targetID: friendlyGameTarget.targetID,
-                        gameType: friendlyGameTarget.type,
+                        gameType: friendlyGameTarget.dimension,
                         askerName: fullname,
                     })
                 );

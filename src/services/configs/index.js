@@ -1,5 +1,5 @@
 const ClientRoutes = require('./client');
-const ServerRoutes = require('./server');
+const ServerRoutes = require('./local');
 const Status = require('./status');
 const browserStorage = require('./browser');
 const GameSetting = require('./gamesetting');
@@ -9,5 +9,5 @@ module.exports = {
     Routes: { Server: ServerRoutes, Client: ClientRoutes },
     Status,
     GameSetting,
-    Devices:{ SmartPhone: 2, Tablet: 1, Desktop: 0 },
+    Devices: { SmartPhone: 2, Tablet: 1, Desktop: 0 },
 }

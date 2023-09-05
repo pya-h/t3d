@@ -1,7 +1,10 @@
 //local routes
+const Port = 8080;
+
 module.exports = {
-    Root: "http://localhost:4000",
-    WebSocketRoot: "ws://localhost:4000/ws",
+    Port,
+    Root: `http://localhost:${Port}`,
+    WebSocketRoot: `ws://localhost:${Port}/ws`,
     wsGamePlayRoute: "gameplay",
     wsGlobalRoute: "global",
     SignUp: "signup",

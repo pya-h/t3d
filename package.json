@@ -20,7 +20,6 @@
         "react-responsive": "^9.0.0-beta.4",
         "react-router": "^5.2.1",
         "react-router-dom": "^5.3.0",
-        "react-scripts": "4.0.3",
         "react-toastify": "^8.0.3",
         "redux": "^4.1.1",
         "redux-thunk": "^2.3.0",
@@ -30,7 +29,7 @@
     "yargs-parser": "^20.2.9",
     "scripts": {
         "preinstall": "npx npm-force-resolutions",
-        "start": "PORT=4190 react-scripts start",
+        "start": "PORT=4200 react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
@@ -58,5 +57,8 @@
     "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
     "main": "index.js",
     "author": "pya-py",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "react-scripts": "^5.0.1"
+    }
 }

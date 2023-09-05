@@ -57,7 +57,7 @@ const GameDeck = () => {
                         <Alert
                           className="text-center"
                           variant="primary"
-                        >{`Board size: ${room.type} * ${room.type} * ${room.type}`}</Alert>
+                        >{`Board size: ${room.dimension} × ${room.dimension} × ${room.dimension}`}</Alert>
                       </Col>
                     </Row>
                     <hr />

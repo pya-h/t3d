@@ -44,7 +44,7 @@ const FriendRecords = ({ person, thisIsMe }) => {
 		}
 	}, [person]);
 	const onInviteToGameClick = () => {
-		if (!room.type && !room.type && !thisIsMe) {
+		if (!room.dimension && !room.dimension && !thisIsMe) {
 			//if you want to enable players play multiple games then remove this
 			// if player isnt still in a game
 			//check room info?

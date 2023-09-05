@@ -36,7 +36,7 @@ export const EndFriendRequest = () => {
 export const InviteToFriendlyGame = (targetID, gameType) => {
     return async(dispatch, getState) => {
         const tools = {...(getState().tools) };
-        tools.friendlyGameTarget = { targetID, type: gameType };
+        tools.friendlyGameTarget = { targetID, dimension: gameType };
         await dispatch({ type: "UPDATE_TOOLS", payload: tools });
     };
 };
@@ -52,7 +52,7 @@ export const EndFriendlyInvitation = () => {
 export const RecieveGameInvitation = (ID, name, gameType) => {
     return async(dispatch, getState) => {
         const tools = {...(getState().tools) };
-        tools.gameInvitation = { ID, name, type: gameType };
+        tools.gameInvitation = { ID, name, dimension: gameType };
         await dispatch({ type: "UPDATE_TOOLS", payload: tools });
     };
 };
@@ -69,7 +69,7 @@ export const AcceptInvitation = (inviterID, gameType) => {
     return async(dispatch, getState) => {
         // ********* CHECK leagueToAttend value and decide whar *********************//
         const tools = {...(getState().tools) };
-        tools.acceptedGame = { inviterID, type: gameType };
+        tools.acceptedGame = { inviterID, dimension: gameType };
         tools.gameInvitation = null;
         await dispatch({ type: "UPDATE_TOOLS", payload: tools });
     };
@@ -94,11 +94,22 @@ export const ReloadRecords = () => {
 
 export const AttendLeagueGame = (leagueId) => {
     return async(dispatch, getState) => {
-        const tools = { ...(getState().tools) };
+        const tools = {...(getState().tools) };
         tools.gameInvitation = null;
         tools.acceptedGame = null;
         tools.friendlyGameTarget = null;
         tools.leagueToAttend = leagueId;
+        await dispatch({ type: "UPDATE_TOOLS", payload: tools })
+    }
+}
+
+export const EndLeagueGame = () => {
+    return async(dispatch, getState) => {
+        const tools = {...(getState().tools) };
+        tools.gameInvitation = null;
+        tools.acceptedGame = null;
+        tools.friendlyGameTarget = null;
+        tools.leagueToAttend = null;
         await dispatch({ type: "UPDATE_TOOLS", payload: tools })
     }
 }

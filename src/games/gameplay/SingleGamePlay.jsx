@@ -48,7 +48,7 @@ class SingleGamePlay extends Component {
                 document.getElementsByClassName("game-table-cells"); // pay attension to searched className! may cause an error
             const { dimension, table, myTurn, empties } = game;
             const ai = new ArtificialIntelligence(
-                Number(!myTurn),
+                +!myTurn,
                 table,
                 game.difficulty,
                 dimension
@@ -71,7 +71,7 @@ class SingleGamePlay extends Component {
     }
     updateGameScorebaord = () => {
         const { myTurn, players } = this.state;
-        const oppTurn = Number(!myTurn);
+        const oppTurn = +!myTurn;
 
         this.props.UpdateScoreboard({
             me: {

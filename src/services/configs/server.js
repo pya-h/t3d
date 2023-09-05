@@ -1,10 +1,11 @@
+const Host = "t3d.iran.liara.run";
+//const Host = "t3dweb.herokuapp.com",
+
 //server routes
 module.exports = {
-    // Root: "https://t3dweb.herokuapp.com",
-    Root: "https://t3d.iran.liara.run",
-    // WebSocketRoot: "wss://t3dweb.herokuapp.com/ws",
-    WebSocketRoot: "wss://t3d.iran.liara.run/ws",
-
+    Host,
+    Root: `https://${Host}`,
+    WebSocketRoot: `wss://${Host}/ws`,
     wsGamePlayRoute: "gameplay",
     wsGlobalRoute: "global",
     SignUp: "signup",

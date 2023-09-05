@@ -3,10 +3,11 @@
     color: black;
     border-radius: 10px;
     float: right;
-    margin-top: 3%;
+    margin-top: 4%;
     margin-bottom: 3%;
     width: 100%;
     min-height: 20rem;
+    line-height: 4rem;
 }
 
 .sign-in-sidebar-textbox {
@@ -14,14 +15,16 @@
     color: black;
     font-size: 16px;
     text-align: center;
+    min-height: 4rem;
 }
 
-.animated-sidebar-intense{
+.animated-sidebar-intense {
     opacity: 0.75;
     -webkit-transition: opacity 0.25s ease-in-out;
     transition: opacity 0.25s ease-in-out;
 }
-.animated-sidebar-intense:hover{
+
+.animated-sidebar-intense:hover {
     opacity: 1.0;
 }
 
@@ -30,16 +33,18 @@
     color: black;
     border-radius: 10px;
     float: left;
-    margin-top: 3%;
+    margin-top: 4%;
     margin-bottom: 3%;
     width: 100%;
+    line-height: 4rem;
     min-height: 20rem;
-
 }
 
 .sign-in-sidebar-buttons {
     font-size: 16px;
     margin: 1%;
+    border-radius: 1rem;
+    line-height: 4rem;
 }
 
 .player-info-sidebar {
@@ -50,6 +55,7 @@
     margin-top: 3%;
     margin-bottom: 3%;
     width: 100%;
+    line-height: 4rem;
 }
 
 .player-avatar {
@@ -58,7 +64,7 @@
     /* border-radius: 50%; */
     float: center;
     margin: auto;
-    margin-top:1%
+    margin-top: 1%;
 }
 
 .player-badge-font-size {
