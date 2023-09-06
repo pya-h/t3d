@@ -16,10 +16,6 @@ const leagueServices = {
             `${Server.Root}/${Server.Leagues}/${Server.LeaguesList}/${leagueID}`,
             JSON.stringify({ teamID })
         ),
-    attendLeagueGame: (leagueID) =>
-        http.get(
-            `${Server.Root}/${Server.Leagues}/${Server.Attend}/${leagueID}`
-        ),
     createLeague: (
             password,
             Mode,

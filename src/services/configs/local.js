@@ -22,7 +22,6 @@ module.exports = {
     Leagues: "leagues",
     NewLeague: "new",
     LeaguesList: "list",
-    Attend: "attend",
     Chats: "chats",
     Interactions: "interact",
     Notices: "notices",
