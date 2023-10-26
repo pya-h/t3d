@@ -3,13 +3,13 @@ import "./info.css";
 import { Fragment, useEffect, useState } from "react";
 
 const ContactUs = () => {
-    const [lineHeight, setLineHeight] = useState(1);
+    const [lineHeight, setLineHeight] = useState(0.6);
 
-    useEffect(() => setLineHeight(5), []);
+    useEffect(() => setLineHeight(2), []);
 	return (
 		<Fragment>
 			<Card
-				style={{ fontSize: "140%", lineHeight: `${lineHeight}rem` }}
+				style={{ lineHeight: `${lineHeight}rem` }}
 				border="dark"
 				className="simple-single-card"
 			>
@@ -73,7 +73,7 @@ const ContactUs = () => {
 			</Card>
 			<hr />
 			<Card
-				style={{ fontSize: "140%", lineHeight: `${lineHeight}rem` }}
+				style={{lineHeight: `${lineHeight}rem` }}
 				border="danger"
 				className="simple-single-card"
 
@@ -87,7 +87,7 @@ const ContactUs = () => {
 						<span class="mx-5 px-5">
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;پدرام مکان پرست
 						</span>
-						<br /> <br />
+						<br />
 						<span class="mx-5 px-5">
                         &nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;فارغ
@@ -103,6 +103,7 @@ const ContactUs = () => {
 								thcplusplus@gmil.com
 							</a>
 						</span>
+						<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<span class="mx-5 px-5">
 							<a href="https://mail.google.com">
 								p4ya.py@gmail.com
@@ -127,7 +128,7 @@ const ContactUs = () => {
 							className="mx-5 px-5"
 							href="https://github.com/pya-h"
 						>
-							@pya-h
+							https://github.com/pya-h
 						</Card.Link>
 					</Card.Text>
 					<hr />

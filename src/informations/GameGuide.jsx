@@ -6,11 +6,11 @@ const GameGuide = () => {
     const [lineHeight, setLineHeight] = useState(0);
 
     useEffect(() => {
-        setLineHeight(5);
+        setLineHeight(3);
     }, []);
 	return (
 		<Card
-			style={{ fontSize: "140%", lineHeight: "5rem" }}
+			style={{ lineHeight: `${lineHeight}rem` }}
 			border="info"
 			className="simple-single-card "
 		>
@@ -18,7 +18,7 @@ const GameGuide = () => {
 				دانشگاه علم و صنعت ایران
 			</Card.Header>
 			<Card.Body className="text-right">
-				<Card.Text style={{lineHeight: `${lineHeight}rem`}} className="my-5 px-5 mx-5">
+				<Card.Text style={{lineHeight: `${lineHeight}rem`}} className="my-3 mx-4">
 					لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
 					با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
 					و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
