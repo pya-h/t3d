@@ -7,7 +7,7 @@
     margin-bottom: 3%;
     width: 100%;
     min-height: 20rem;
-    line-height: 4rem;
+    line-height: 2rem;
 }
 
 .sign-in-sidebar-textbox {
@@ -15,7 +15,7 @@
     color: black;
     font-size: 16px;
     text-align: center;
-    min-height: 4rem;
+    min-height: 3rem;
 }
 
 .animated-sidebar-intense {
@@ -36,7 +36,7 @@
     margin-top: 4%;
     margin-bottom: 3%;
     width: 100%;
-    line-height: 4rem;
+    line-height: 2rem;
     min-height: 20rem;
 }
 
@@ -44,7 +44,6 @@
     font-size: 16px;
     margin: 1%;
     border-radius: 1rem;
-    line-height: 4rem;
 }
 
 .player-info-sidebar {
@@ -55,7 +54,7 @@
     margin-top: 3%;
     margin-bottom: 3%;
     width: 100%;
-    line-height: 4rem;
+    line-height: 2rem;
 }
 
 .player-avatar {

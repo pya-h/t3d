@@ -3,13 +3,13 @@ import SingleRankCard from "./SingleRankCard";
 
 const Rankings = ({ players, rankByProgress }) => {
 	return (
-		<Card border="dark" style={{ width: "100%", borderRadius: "5px", lineHeight: "5rem" }}>
+		<Card border="dark" style={{ width: "100%", borderRadius: "5px", lineHeight: "3rem" }}>
 			<Card.Header className="text-center">Rankings</Card.Header>
-			<table style={{lineHeight: "5rem"}} className="table table-striped table-bordered table-hover text-center">
+			<table style={{lineHeight: "2rem"}} className="table table-striped table-bordered table-hover text-center">
 				<thead className="bg-info">
 					<tr>
 						<th scope="col">#</th>
-						<th scope="col">Player Name</th>
+						<th scope="col">Name</th>
 						<th scope="col">Points</th>
 						<th scope="col">Wins</th>
 						<th scope="col">Losses</th>

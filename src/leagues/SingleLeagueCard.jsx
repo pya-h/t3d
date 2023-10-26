@@ -1,10 +1,11 @@
 import { Card, Alert, Badge, Row, Col, Button } from "react-bootstrap";
-import { Status } from "../services/configs";
-import { OK, Sorry } from "../tools/notification";
+import { Routes, Status } from "../services/configs";
+import { Attention, OK, Sorry } from "../tools/notification";
 import leagueServices from "../services/http/leagueServices";
 import { useState, useEffect, useContext } from "react";
 import ModalContesters from "./ModalContesters";
 import GlobalContext from "./../globals/state/GlobalContext";
+import { useSelector } from "react-redux";
 
 const SingleLeagueCard = ({ league, reload }) => {
 	const Summaries = [
@@ -16,24 +17,30 @@ const SingleLeagueCard = ({ league, reload }) => {
 	const [showMore, toggleShow] = useState(false); //show showMore or not?
 	const [ready, setReady] = useState(false); // if league is ready to play
 	const context = useContext(GlobalContext);
+    const me = useSelector((state) => state.me);
 
 	const join = async () => {
-		try {
-			const { status } = await leagueServices.joinLeague(league.leagueID);
-			if (status === Status.Successful) {
-				OK(`You have successfully joined the ${league.title} league.`);
-				reload();
+        if (me) {
+			try {
+				const { status } = await leagueServices.joinLeague(league.leagueID);
+				if (status === Status.Successful) {
+					OK(`You have successfully joined the ${league.title} league.`);
+					reload();
+				}
+			} catch (err) {
+				console.log(err);
+				if (err.response.status === Status.MethodNotAllowed)
+					Sorry(
+						"Joining this league is not allowed. This league is at full capacity."
+					);
+				else if (!Status.isErrorExpected(err))
+					Sorry(
+						"Failed to load leagues. Please check your internet connection."
+					);
 			}
-		} catch (err) {
-			console.log(err);
-			if (err.response.status === Status.MethodNotAllowed)
-				Sorry(
-					"Joining this league is not allowed. This league is at full capacity."
-				);
-			else if (!Status.isErrorExpected(err))
-				Sorry(
-					"Failed to load leagues. Please check your internet connection."
-				);
+		} else {
+			Attention("Please sign in first.");
+            context.goTo(Routes.Client.SignUp);
 		}
 	};
 
@@ -41,7 +48,12 @@ const SingleLeagueCard = ({ league, reload }) => {
 		// ask server whether the client is really a contester or not
 		// re route the client to league route
 		// dispatch a redux contaning leagueID of the league is currntly openning
-		context.openLeaguePage(league.leagueID);
+		if(me) 
+			context.openLeaguePage(league.leagueID);
+		else {
+			Attention("Please sign in first.");
+            context.goTo(Routes.Client.SignUp);
+		}
 	};
 
 	useEffect(() => {
