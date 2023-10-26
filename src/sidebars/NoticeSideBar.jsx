@@ -35,6 +35,10 @@ const NoticeSideBar = () => {
                         title: "Error",
                         text: "Failed to load notices. Please try again.",
                     },
+                    {
+                        title: "Notice",
+                        text: "The hosting plan is temporarily inactive. It will be resolved soon. Currently only single-player mode is available.",
+                    },
                 ]);
             }
         })();
