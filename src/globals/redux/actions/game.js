@@ -8,6 +8,11 @@ export const EnterRoom = (room) => {
         const me = getState().me;
 
         try {
+            if (room && room.gameID)
+                await dispatch({
+                    type: "REGISTER_GAME",
+                    payload: { multy: true, gameID: room.gameID },
+                });
             await dispatch({
                 type: "ENTER_ROOM",
                 payload: room,

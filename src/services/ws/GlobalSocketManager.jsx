@@ -1,4 +1,4 @@
-import { browserStorage, Routes } from "../configs";
+import { browserStorage, Routes, Status } from "../configs";
 import { Fragment, useCallback, useContext, useState } from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -15,6 +15,7 @@ import {
     RecieveGameInvitation,
     ReloadRecords,
     EmptyGameInvitations,
+    EndLeagueGame,
 } from "./../../globals/redux/actions/tools";
 import { EnterRoom } from "../../globals/redux/actions/game";
 import { LoadThisPlayer } from "./../../globals/redux/actions/player";
@@ -103,6 +104,19 @@ const GlobalSocketManager = () => {
                                 context.redirectToGamePlay(room);
                                 break;
                             }
+                            case "GAME_ATTEND_FAILURE":
+                                const { reason } = msg;
+                                console.log(reason);
+                                if(reason.statusCode === Status.GameEnded) {
+                                    Sorry("این بازی قبلا انجام شده و به اتمام رسیده است!");
+                                } else if(reason.statusCode === Status.NotStartedYet) {
+                                    // TODO: ?
+                                }
+                                // TODO: and other errors
+                                // TODO: MAYBE DEFINE SOME KIND OF AUTOMATIC ERROR HANDLER LIKE axios
+
+                                dispatch(EndLeagueGame())
+                                break;
                             case "GAME_CANCELLED": {
                                 context.cancelGame();
                                 break;

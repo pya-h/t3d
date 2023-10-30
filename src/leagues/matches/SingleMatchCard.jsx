@@ -3,13 +3,11 @@ import "./matches.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toHijri, toTimeShort } from "../../tools/format";
-import leagueServices from "../../services/http/leagueServices";
-import { browserStorage, Status } from "../../services/configs";
-import { Sorry } from "../../tools/notification";
+import { toHijri } from "../../tools/format";
+import { browserStorage } from "../../services/configs";
 import { AttendLeagueGame } from "../../globals/redux/actions/tools";
 
-const attendThisGame = async () => {
+/*const attendThisGame = async () => {
     // trig event in GlobbalSocket to create the room for game
     try {
         const { status, data } = await leagueServices.attendLeagueGame(
@@ -27,7 +25,7 @@ const attendThisGame = async () => {
                 "خطا در برقراری ارتباط ... لطفا ارتباط خود را با اینترنت بررسی کنید."
             );
     }
-};
+};*/
 
 const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
     const me = useSelector((state) => state.me);
@@ -62,6 +60,7 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
             onClick={!onClickForThis ? null : () => dispatch(AttendLeagueGame(browserStorage.LEAGUE()))}
             border="primary"
             className="single-match-card"
+            style={{fontSize: "14px"}}
         >
             <Card.Body>
                 <Row className="text-center mx-auto">

@@ -21,6 +21,8 @@ module.exports = {
     UnprocessableEntity: 422,
     LeagueNotFound: 432,
     MatchNotFound: 433,
+    NotStartedYet: 434,
+    GameEnded: 435,
     NonSenseToken: 465,
     ForgedToken: 466,
     InternalServerError: 500,
