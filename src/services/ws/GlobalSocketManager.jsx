@@ -412,7 +412,7 @@ const GlobalSocketManager = () => {
                     <p>
                         {!incommingFriendRequest ? null : (
                             <Badge
-                                style={{ fontSize: "18px", margin: "2%" }}
+                                style={{ fontSize: "16px", margin: "2%" }}
                                 pill
                                 variant="warning"
                             >

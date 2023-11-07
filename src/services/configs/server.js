@@ -1,5 +1,5 @@
-const Port = null,
-    Host = 'pheelstyle.ir/t3d';
+const Host = "t3d.iran.liara.run";
+//const Host = "t3dweb.herokuapp.com",
 
 //server routes
 module.exports = {

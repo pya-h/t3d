@@ -43,7 +43,7 @@ const BriefScoreboard = ({ timeRemaining, players, turn }) => {
 
     return (
         <Card.Header className="w-100 text-center">
-            <Row style={{ fontSize: "20px" }}>
+            <Row style={{ fontSize: "17px" }}>
                 <Col
                     style={{
                         textAlign: "right",
