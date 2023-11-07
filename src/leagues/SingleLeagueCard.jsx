@@ -93,7 +93,7 @@ const SingleLeagueCard = ({ league, reload }) => {
 						<span className="text-center">
 							ظرفیت :
 							<Badge
-								style={{ fontSize: "16px" }}
+								style={{ fontSize: "14px" }}
 								className="mx-2 p-2"
 								variant="primary"
 								pill>
@@ -105,7 +105,7 @@ const SingleLeagueCard = ({ league, reload }) => {
 						<span className="text-center">
 							جایزه نفر اول :
 							<Badge
-								style={{ fontSize: "16px" }}
+								style={{ fontSize: "14px" }}
 								className="mx-2 p-2"
 								variant="primary"
 								pill>
@@ -117,7 +117,7 @@ const SingleLeagueCard = ({ league, reload }) => {
 						<span className="text-center">
 							تعداد شرکت کنندگان :
 							<Badge
-								style={{ fontSize: "16px" }}
+								style={{ fontSize: "14px" }}
 								className="mx-2 p-2"
 								variant="primary"
 								pill>

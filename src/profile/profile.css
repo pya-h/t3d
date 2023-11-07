@@ -1,10 +1,11 @@
 .profile-panel-sidebar {
-    height: 90vh; /*what to do about this*/
+    height: 90vh;
+    /*what to do about this*/
     border-radius: 10px;
     margin: auto;
-    background-color: black ;
+    background-color: black;
     text-align: right;
-    margin-top:2%;
+    margin-top: 2%;
     padding: 3%;
     opacity: 0.8;
 }
@@ -24,6 +25,7 @@
 .icon-edit-notice {
     cursor: pointer;
 }
+
 .icon-edit-notice:hover {
     color: orange;
 }
@@ -59,24 +61,24 @@
     margin-bottom: 1%;
 }
 
-
 .friend-badge-font-size {
     font-size: 16px;
 }
 
 .tabs-list-friends-in-games-scrollable {
-/* .nav nav-items{ */
+    /* .nav nav-items{ */
     height: 250px;
     overflow-y: scroll;
 }
 
 .icon-unfriend {
     cursor: pointer;
-    font-size: 20px;
-    color: black; 
+    font-size: 15px;
+    color: black;
     /* how to hide? */
     /* color: white; */
 }
+
 .icon-unfriend:hover {
     color: red;
 }

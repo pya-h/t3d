@@ -10,7 +10,7 @@ const LeagueHome = () => {
 		<Card
 			border="primary"
 			bg="transparent"
-			className="single-league-card">
+			className="single-league-card mx-0 px-0">
 			{Boolean(league) && (
 				<Card.Body>
 					<Tabs
@@ -22,13 +22,13 @@ const LeagueHome = () => {
 							<hr />
 							<MatchesTable ongoing={league.ongoing} />
 						</Tab>
-						<Tab eventKey="table" title="جدول">
+						{league.mode && <Tab eventKey="table" title="جدول">
 							<hr />
 							<Rankings
 								players={league.contesters}
 								rankByProgress={true}
 							/>
-						</Tab>
+						</Tab>}
 						<Tab eventKey="details" title="جزییات">
 							<hr />
 						</Tab>

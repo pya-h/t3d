@@ -300,7 +300,7 @@ const NoticeManager = () => {
 												<span
 													style={{
 														color: "red",
-														fontSize: "18px",
+														fontSize: "15px",
 													}}>
 													{notice.title}
 												</span>
