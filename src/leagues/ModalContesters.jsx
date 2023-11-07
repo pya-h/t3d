@@ -8,9 +8,10 @@ const ModalContesters = ({ contesters }) => {
 		<Fragment>
 			<Button
 				block
+
 				onClick={() => setShow(true)}
 				variant="outline-secondary">
-				Present Players
+				Players
 			</Button>
 
 			<Modal show={show} onHide={() => setShow(false)}>

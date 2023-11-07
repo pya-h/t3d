@@ -4,18 +4,25 @@ import gregorian_en from "react-date-object/locales/gregorian_en";
 
 const objectify = (date) => {
     return new DateObject({
-		date: new Date(date),
-		calendar: gregorian,
-		locale: gregorian_en,
-	});
+        date: new Date(date),
+        calendar: gregorian,
+        locale: gregorian_en,
+    });
 }
 export const toHijri = (date) => {
-	return [
-		objectify(date).format("dddd DD MMMM YYYY"),
-		objectify(date).format("hh:mm"),
-	];
+    return [
+        objectify(date).format("dddd DD MMMM YYYY"),
+        objectify(date).format("hh:mm"),
+    ];
+};
+
+export const toShortHijri = (date) => {
+    return [
+        objectify(date).format("dddd YYYY/MM/dd"),
+        objectify(date).format("hh:mm"),
+    ];
 };
 
 export const toTimeShort = (date) => {
-	return objectify(date).format("hh:mm");
+    return objectify(date).format("hh:mm");
 };
