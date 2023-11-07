@@ -1,4 +1,4 @@
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import LeagueHome from "./../leagues/LeagueHome";
 import { EnterLeague, ExitLeague } from "./../globals/redux/actions/league";
 import { browserStorage } from "../services/configs";
@@ -35,15 +35,17 @@ const LeagueLayout = () => {
 	}, [dispatch]);
 
 	return (
+		<Container>
+
 		<Row>
             <AutoSignIn />
 			<LoadingBar loading={loading} />
-			<Col xs={12} sm={12} md={4} lg={3}></Col>
 			<Col>
 				<LeagueHome />
 			</Col>
-			<Col xs={0} sm={0} md={0} lg={3}></Col>
+			<Col xs={0} sm={0} md={0} lg={4}></Col>
 		</Row>
+		</Container>
 	);
 };
 

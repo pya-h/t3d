@@ -59,7 +59,7 @@ const NoticeSideBar = () => {
                                     className="fa fa-rss px-3"
                                     aria-hidden="true"></i>
                                 <span
-                                    style={{ color: "red", fontSize: "18px" }}>
+                                    style={{ color: "red", fontSize: "15px" }}>
                                     {notice.title}
                                 </span>
                                 : {notice.text}

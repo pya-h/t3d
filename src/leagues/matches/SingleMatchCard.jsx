@@ -3,7 +3,7 @@ import "./matches.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toHijri } from "../../tools/format";
+import { toShortHijri } from "../../tools/format";
 import { browserStorage } from "../../services/configs";
 import { AttendLeagueGame } from "../../globals/redux/actions/tools";
 
@@ -47,11 +47,11 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
             if (now >= new Date(schedule)) {
                 // if its due is passed, make the cardf red indicating the player has lost the game
                 // other wise add a onClick and color to the corresponding card
-                setCardColor("success");
+                setCardColor("primary");
                 setOnClickForThis(true);
             }
         }
-        const [date, time] = toHijri(schedule);
+        const [date, time] = toShortHijri(schedule);
         setHijriDate({time, date});
     }, [schedule, playerX, playerO, me]);
     return (
@@ -64,13 +64,13 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
         >
             <Card.Body>
                 <Row className="text-center mx-auto">
-                    <span className="col-lg-5 col-md-6 text-right">
+                    <span className="col-4 text-right">
                         {playerX.fullname}
                     </span>
-                    <span className="col-lg-2 col-md-2 text-center">
+                    <span className="col-4 text-center">
                         {hijriDate.date + " - " + hijriDate.time}
                     </span>
-                    <span className="col-lg-5 col-md-6 text-left">
+                    <span className="col-4 text-left">
                         {playerO.fullname}
                     </span>
                 </Row>
