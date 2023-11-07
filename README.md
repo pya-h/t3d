@@ -1,6 +1,6 @@
 # 3D Online TicTacToe Game
-demo in: 
-    https://pya-h.github.io/t3d
+Demo: https://pya-h.github.io/t3d
+Server side repo: https://github.com/pya-h/t3d
 
 # Features:
 * random game
