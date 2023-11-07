@@ -1,5 +1,6 @@
-const Host = "t3d.iran.liara.run";
+// const Host = "t3d.iran.liara.run";
 //const Host = "t3dweb.herokuapp.com",
+const Host = 't3d.pheelstyle.ir';
 
 //server routes
 module.exports = {
