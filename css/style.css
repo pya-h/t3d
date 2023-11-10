@@ -112,3 +112,14 @@ body {
         width: 100%;
     }
 }
+
+
+/* TODO: Keep this or what? */
+
+@media (max-width: 1400px) and (min-width: 800px) {
+    * {
+        zoom: 0.98;
+        -moz-transform: scale(0.98);
+        -moz-transform-origin: 0 0;
+    }
+}
