@@ -23,6 +23,7 @@ module.exports = {
     MatchNotFound: 433,
     NotStartedYet: 434,
     GameEnded: 435,
+    NonOfYourBusinessMatch: 437,
     NonSenseToken: 465,
     ForgedToken: 466,
     InternalServerError: 500,
