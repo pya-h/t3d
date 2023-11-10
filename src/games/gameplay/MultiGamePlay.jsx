@@ -108,8 +108,11 @@ class MultiGamePlay extends Component {
         const { data } = response;
         const { cmd, msg } = JSON.parse(data);
         const { surrender } = this.props;
-        if (this.props.location.pathname === Routes.Client.GameDeck) {
-            if (cmd === "START") {
+        if (this.props.location.pathname !== Routes.Client.GameDeck) return;
+
+        // cases must be wrapped in { }; because of block-scope variable definitions
+        switch (cmd) {
+            case "START": {
                 const startTime = toTimeShort(msg);
                 //edit !surrender part
                 const { players, myTurn } = this.state;
@@ -117,7 +120,9 @@ class MultiGamePlay extends Component {
                     Notify(`بازی راس ساعت ${startTime} آغاز شد.`);
                     Attention(`مهره ی شما: ${players[myTurn].text}`);
                 }
-            } else if (cmd === "REMEMBER") {
+                break;
+            }
+            case "REMEMBER": {
                 const { IDs, dimension, myTurn, gameID } = msg;
                 this.setState({ dimension, myTurn });
 
@@ -130,71 +135,98 @@ class MultiGamePlay extends Component {
                     !opponent && opponentID && LoadThisPlayer(opponentID);
                     !game && gameID && RegisterMultiplayer(gameID);
                 }
-            } else if (cmd === "LOAD") {
+                break;
+            }
+            case "LOAD": {
                 this.updatePlayerStates(msg);
                 const { table, t0 } = msg;
                 this.setState({ table });
                 this.updatePlayerStates(msg);
                 this.updateGameScorebaord();
                 this.synchronizeDeadline(t0);
-            } else if (this.state.table) {
-                if (cmd === "SCORES") this.updatePlayerStates(msg);
-                else if (cmd === "UPDATE") {
-                    const { room, me } = this.props;
-                    const { dimension } = this.state;
-                    const { newMove, t0 } = msg;
-                    const cellID = +newMove.cellIndex;
+                break;
+            }
+            default: {
+                if (this.state.table) {
+                    switch (cmd) {
+                        case "SCORES":
+                            this.updatePlayerStates(msg);
+                            break;
+                        case "UPDATE": {
+                            const { room, me } = this.props;
+                            const { dimension } = this.state;
+                            const { newMove, t0 } = msg;
+                            const cellID = +newMove.cellIndex;
 
-                    //*************** */
-                    //is this needed to check the move in client? considering that complete check has been made in client
-                    //and consder that: checking move in client may cause some bugs
-                    //for ex: new move is sent -> and 'cause of some error the cell is not empty
-                    //turn is not updated and this player can not make new moves to recieve server's table!!!
-                    this.verifyAndApplyTheMove(
-                        T3DLogic.getCellCoordinates(cellID, dimension),
-                        this.cellButtons[cellID]
-                    );
-                    //wrap it up this part of UPDATE and LOAD in a method
-                    this.updatePlayerStates(newMove);
+                            //*************** */
+                            //is this needed to check the move in client? considering that complete check has been made in client
+                            //and consder that: checking move in client may cause some bugs
+                            //for ex: new move is sent -> and 'cause of some error the cell is not empty
+                            //turn is not updated and this player can not make new moves to recieve server's table!!!
+                            this.verifyAndApplyTheMove(
+                                T3DLogic.getCellCoordinates(cellID, dimension),
+                                this.cellButtons[cellID]
+                            );
+                            //wrap it up this part of UPDATE and LOAD in a method
+                            this.updatePlayerStates(newMove);
 
-                    this.cellButtons[cellID].focus();
-                    this.updateGameScorebaord();
+                            this.cellButtons[cellID].focus();
+                            this.updateGameScorebaord();
 
-                    // now inform the server that the move is recieved
-                    //force connect it?
-                    if (newMove.madeBy !== me.userID)
-                        this.state.socketGamePlay.send(
-                            createSocketRequest(
-                                "move_recieved",
-                                room.name,
-                                true
-                            )
-                        );
-                    // server time out is set and now setInterval for this client to show how much time left
-                    this.synchronizeDeadline(t0);
-                } else if (cmd === "MOVE_MISSED") {
-                    const { turn, t0 } = msg;
-                    //msg --> forced set turn
-                    this.setState({ turn });
-                    this.synchronizeDeadline(t0);
-                } else if (cmd === "NOT_AUTHORIZED") {
-                    Attention("لطفا وارد حساب کاربری خود شوید");
-                    // signOut();
-                } else if (cmd === "END") {
-                    this.updatePlayerStates(msg);
-                    T3DLogic.endThisGame(this.state, this.onCloseGame);
-                    this.disableAllTimers();
-                } else if (cmd === "CLOSE") {
-                    Attention(
-                        "بدلیل حاضر نبودن هیچ کدام از بازیکینان، بازی شما کنسل شد"
-                    );
-                    this.onCloseGame();
-                } else if (cmd === "REGISTER_GAME") {
-                    const { gameID } = msg;
-                    gameID && this.props.RegisterMultiplayer(gameID);
-                } else {
-                    console.log("wrong socket request");
+                            // now inform the server that the move is recieved
+                            //force connect it?
+                            if (newMove.madeBy !== me.userID)
+                                this.state.socketGamePlay.send(
+                                    createSocketRequest(
+                                        "move_recieved",
+                                        room.name,
+                                        true
+                                    )
+                                );
+                            // server time out is set and now setInterval for this client to show how much time left
+                            this.synchronizeDeadline(t0);
+                            break;
+                        }
+                        case "MOVE_MISSED": {
+                            const { turn, t0 } = msg;
+                            //msg --> forced set turn
+                            this.setState({ turn });
+                            this.synchronizeDeadline(t0);
+                            break;
+                        }
+                        case "NOT_AUTHORIZED": {
+                            Attention("لطفا وارد حساب کاربری خود شوید");
+                            // signOut();
+                            break;
+                        }
+                        case "END": {
+                            this.updatePlayerStates(msg);
+                            T3DLogic.endThisGame(this.state, this.onCloseGame);
+                            this.disableAllTimers();
+                            break;
+                        }
+                        case "CLOSE": {
+                            Attention(
+                                "بدلیل حاضر نبودن هیچ کدام از بازیکینان، بازی شما کنسل شد"
+                            );
+                            this.onCloseGame();
+                            break;
+                        }
+                        case "REGISTER_GAME": {
+                            const { gameID } = msg;
+                            gameID && this.props.RegisterMultiplayer(gameID);
+                            break;
+                        }
+                        case "GAME_ATTEND_FAILURE": {
+                            // TODO: What course of action to take?
+                            break;
+                        }
+                        default:
+                            console.log("wrong socket request");
+                            break;
+                    }
                 }
+                break;
             }
         }
     };
@@ -345,10 +377,10 @@ class MultiGamePlay extends Component {
     onCloseGame = () => {
         this.state.socketGamePlay.close();
         this.setState({ socketGamePlay: null });
-        console.log(this.props)
+        console.log(this.props);
 
         setTimeout(() => {
-            console.log(this.props)
+            console.log(this.props);
             this.props.CloseOngoingGame();
             this.props.history.replace("/"); // in competition mode must be send back to competition page
         }, 3000);

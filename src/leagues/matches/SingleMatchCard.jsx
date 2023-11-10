@@ -27,7 +27,7 @@ import { AttendLeagueGame } from "../../globals/redux/actions/tools";
     }
 };*/
 
-const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
+const SingleMatchCard = ({ playerX, playerO, schedule }) => {
     const me = useSelector((state) => state.me);
     const [onClickForThis, setOnClickForThis] = useState(false);
     const [cardColor, setCardColor] = useState(null);
@@ -41,8 +41,8 @@ const SingleMatchCard = ({ Type, date, playerX, playerO, schedule }) => {
 
         if (
             me &&
-            (me.userID.toString() === playerX.userID.toString() ||
-                me.userID.toString() === playerO.userID.toString())
+            (me.userID.toString() === playerX?.userID?.toString() ||
+                me.userID.toString() === playerO?.userID?.toString())
         ) {
             if (now >= new Date(schedule)) {
                 // if its due is passed, make the cardf red indicating the player has lost the game

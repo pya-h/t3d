@@ -11,7 +11,7 @@ const LeagueHome = () => {
 			border="primary"
 			bg="transparent"
 			className="single-league-card mx-0 px-0">
-			{Boolean(league) && (
+			{league && (
 				<Card.Body>
 					<Tabs
 						defaultActiveKey="draws"
