@@ -16,7 +16,7 @@ class MultiGamePlay extends Component {
         players: [
             {
                 // ID: '',
-                shape: <i className="fa fa-times" aria-hidden="true" />, // "X" : some device may not support font-awsome
+                shape:  <i className="fa fa-times pulsing-item p-0" aria-hidden="true" style={{width: "15px", height: "15px"}} />, // "X" : some device may not support font-awsome
                 text: "X",
                 color: "blue",
                 lineColor: "primary",
@@ -24,7 +24,7 @@ class MultiGamePlay extends Component {
             },
             {
                 // ID: '',
-                shape: <i className="fa fa-sun-o" aria-hidden="true" />, // "O" : some device may not support font-awsome
+                shape: <i className="fa fa-sun-o pulsing-item p-0" aria-hidden="true" style={{width: "15px", height: "15px"}} />, // "O" : some device may not support font-awsome
                 text: "O",
                 color: "darkred",
                 lineColor: "danger",
@@ -329,7 +329,6 @@ class MultiGamePlay extends Component {
 
     verifyAndApplyTheMove = (cell, cellButton) => {
         const { turn } = this.state;
-        console.log(this.state.table);
         let tempTable = [...this.state.table];
         if (tempTable[cell.floor][cell.row][cell.column] === null) {
             tempTable[cell.floor][cell.row][cell.column] = turn + 1; //maybe its better to use players actual Id huh?

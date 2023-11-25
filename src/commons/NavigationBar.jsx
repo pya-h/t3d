@@ -15,7 +15,7 @@ const NavigationBar = () => {
 				<Nav className="me-auto">
 					<NavLink
 						className="nav-link text-primary"
-						activeClassName="btn-success text-dark"
+						activeClassName="btn-success text-dark pulsing-item"
 						to={
 							me
 								? Routes.Client.Profile
@@ -32,7 +32,7 @@ const NavigationBar = () => {
 						className="nav-link text-primary"
 						to={Routes.Client.Root}
 						exact
-						activeClassName="btn-outline-secondary text-dark">
+						activeClassName="btn-outline-secondary text-dark pulsing-item">
 						<i className="fa fa-home px-2" aria-hidden="true"></i>
 						{context.device === Devices.Desktop && "صفحه اصلی"}
 					</NavLink>
@@ -40,7 +40,7 @@ const NavigationBar = () => {
 					<NavLink
 						className="nav-link text-primary"
 						to={Routes.Client.GameDeck}
-						activeClassName="btn-outline-secondary text-dark">
+						activeClassName="btn-outline-secondary text-dark pulsing-item">
 						<i
 							className="fa fa-gamepad px-2"
 							aria-hidden="true"></i>
@@ -50,7 +50,7 @@ const NavigationBar = () => {
 						<NavLink
 							className="nav-link text-primary"
 							to={Routes.Client.ChatRoom}
-							activeClassName="btn-outline-secondary text-dark">
+							activeClassName="btn-outline-secondary text-dark pulsing-item">
 							<i
 								className="fa fa-comment px-2"
 								aria-hidden="true"></i>
@@ -61,7 +61,7 @@ const NavigationBar = () => {
 					<NavLink
 						className="nav-link text-primary"
 						to={Routes.Client.Rankings}
-						activeClassName="btn-outline-secondary text-dark">
+						activeClassName="btn-outline-secondary text-dark pulsing-item">
 						<i
 							className="fa fa-list-ol px-2"
 							aria-hidden="true"></i>
@@ -70,14 +70,14 @@ const NavigationBar = () => {
 					<NavLink
 						className="nav-link text-primary"
 						to={Routes.Client.GameGuide}
-						activeClassName="btn-outline-secondary text-dark">
+						activeClassName="btn-outline-secondary text-dark pulsing-item">
 						<i className="fa fa-eye px-2" aria-hidden="true"></i>
 						{context.device === Devices.Desktop && "راهنما"}
 					</NavLink>
 					<NavLink
 						className="nav-link text-primary"
 						to={Routes.Client.ContactUs}
-						activeClassName="btn-outline-secondary text-dark">
+						activeClassName="btn-outline-secondary text-dark pulsing-item">
 						<i
 							className="fa fa-phone-square px-2"
 							aria-hidden="true"></i>

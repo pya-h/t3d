@@ -3,35 +3,14 @@ import "./matches.css";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toShortHijri } from "../../tools/format";
+import { toTimeShort } from "../../tools/format";
 import { browserStorage } from "../../services/configs";
 import { AttendLeagueGame } from "../../globals/redux/actions/tools";
-
-/*const attendThisGame = async () => {
-    // trig event in GlobbalSocket to create the room for game
-    try {
-        const { status, data } = await leagueServices.attendLeagueGame(
-            browserStorage.LEAGUE()
-        );
-        if (status === Status.Successful) {
-            const { gameID } = data;
-            console.log("gameID = ", gameID);
-            // redirect to gameId
-        }
-    } catch (err) {
-        console.log(err);
-        if (!Status.isErrorExpected(err))
-            Sorry(
-                "خطا در برقراری ارتباط ... لطفا ارتباط خود را با اینترنت بررسی کنید."
-            );
-    }
-};*/
 
 const SingleMatchCard = ({ playerX, playerO, schedule }) => {
     const me = useSelector((state) => state.me);
     const [onClickForThis, setOnClickForThis] = useState(false);
     const [cardColor, setCardColor] = useState(null);
-    const [hijriDate, setHijriDate] = useState({date: null, time: null});
 
     const dispatch = useDispatch();
     // change this structure to remove using of context
@@ -51,8 +30,6 @@ const SingleMatchCard = ({ playerX, playerO, schedule }) => {
                 setOnClickForThis(true);
             }
         }
-        const [date, time] = toShortHijri(schedule);
-        setHijriDate({time, date});
     }, [schedule, playerX, playerO, me]);
     return (
         <Card
@@ -68,7 +45,7 @@ const SingleMatchCard = ({ playerX, playerO, schedule }) => {
                         {playerX.fullname}
                     </span>
                     <span className="col-4 text-center">
-                        {hijriDate.date + " - " + hijriDate.time}
+                        {toTimeShort(schedule)}
                     </span>
                     <span className="col-4 text-left">
                         {playerO.fullname}
