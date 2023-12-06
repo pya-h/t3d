@@ -1,4 +1,4 @@
-import { Card, Container, Row } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import "./info.css";
 import { Fragment, useEffect, useState } from "react";
 
