@@ -8,70 +8,7 @@ const ContactUs = () => {
     useEffect(() => setLineHeight(2), []);
 	return (
 		<Fragment>
-			<Card
-				style={{ lineHeight: `${lineHeight}rem` }}
-				border="dark"
-				className="simple-single-card"
-			>
-				<Card.Header className="text-center">
-					Iran University of Science and Technology
-				</Card.Header>
-				<Card.Body className="text-left">
-					<Card.Text className="my-3">
-						Project Manager:
-						<span className="px-5 mx-5">Dr. Saeed Ebadollahi</span>
-					</Card.Text>
-					<hr />
-					<Card.Text className="my-3">
-						Email:
-						<span className="px-5 mx-5">
-							<Card.Link
-								className="mx-5"
-								href="https://mail.google.com"
-							>
-								s_ebadollahi@iust.ac.ir
-							</Card.Link>
-						</span>
-					</Card.Text>
-					<hr />
 
-					<Card.Text className="my-3">
-						Phone:
-						<span className="mx-5" dir="ltr">
-							+98 21 7322 5626
-						</span>
-					</Card.Text>
-					<hr />
-					<Card.Text className="my-3">
-						Faculty Website:
-						<Card.Link
-							className="mx-4"
-							dir="ltr"
-							href="http://ee.iust.ac.ir"
-						>
-							http://ee.iust.ac.ir
-						</Card.Link>
-					</Card.Text>
-					<hr />
-					<Card.Text className="my-3">
-						Instagram:
-						<Card.Link
-							className="mx-5 px-5"
-							dir="ltr"
-							href="https://instagram.com/iust.ac"
-						>
-							@iust.ac
-						</Card.Link>
-					</Card.Text>
-					<hr />
-
-					<Card.Text className="my-3 text-center">
-						A brief description of the project and the School of Electrical Engineering - Control Systems.
-					</Card.Text>
-					<hr />
-				</Card.Body>
-			</Card>
-			<hr />
 			<Card
 				style={{lineHeight: `${lineHeight}rem` }}
 				border="danger"
@@ -138,6 +75,70 @@ const ContactUs = () => {
                         I was a Not-Interested electrical engineering student, who loved programming so much!
                         This project is 100% and completely coded by me and only me. I've worked my whatever off for this!
                         Just consider that.
+					</Card.Text>
+					<hr />
+				</Card.Body>
+			</Card>
+			<hr />
+			<Card
+				style={{ lineHeight: `${lineHeight}rem` }}
+				border="dark"
+				className="simple-single-card"
+			>
+				<Card.Header className="text-center">
+					Iran University of Science and Technology
+				</Card.Header>
+				<Card.Body className="text-left">
+					<Card.Text className="my-3">
+						Project Manager:
+						<span className="px-5 mx-5">Dr. Saeed Ebadollahi</span>
+					</Card.Text>
+					<hr />
+					<Card.Text className="my-3">
+						Email:
+						<span className="px-5 mx-5">
+							<Card.Link
+								className="mx-5"
+								href="https://mail.google.com"
+							>
+								s_ebadollahi@iust.ac.ir
+							</Card.Link>
+						</span>
+					</Card.Text>
+					<hr />
+
+					<Card.Text className="my-3">
+						Phone:
+						<span className="mx-5" dir="ltr">
+							+98 21 7322 5626
+						</span>
+					</Card.Text>
+					<hr />
+					<Card.Text className="my-3">
+						Faculty Website:
+						<Card.Link
+							className="mx-4"
+							dir="ltr"
+							href="http://ee.iust.ac.ir"
+						>
+							http://ee.iust.ac.ir
+						</Card.Link>
+					</Card.Text>
+					<hr />
+					<Card.Text className="my-3">
+						Instagram:
+						<Card.Link
+							className="mx-5 px-5"
+							dir="ltr"
+							href="https://instagram.com/iust.ac"
+						>
+							@iust.ac
+						</Card.Link>
+					</Card.Text>
+					<hr />
+
+					<Card.Text className="my-3 text-center">
+						A brief description of the project and the School of Electrical Engineering - Control Systems.
 					</Card.Text>
 					<hr />
 				</Card.Body>

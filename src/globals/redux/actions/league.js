@@ -15,7 +15,6 @@ export const EnterLeague = (leagueID) => {
                     if (league && league.matches) {
                         // league.ongoing is a shortcut like field that translates current round of the league with sufficient data
                         // this code just returns ongoing round:(last index on the league.matches list)
-
                         for (const round of league.matches) {
                             for (const match of round) {
                                 const playerXIndex = league.contesters.findIndex(

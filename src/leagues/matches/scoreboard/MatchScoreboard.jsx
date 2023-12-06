@@ -6,7 +6,7 @@ import "./scoreboard.css";
 const MatchScoreboard = ({ children }) => {
     const [round, setRound] = useState(0);
 
-    return children ? (
+    return children && children.length > 1 ? (
         <div>
             <div className="w-100 text-center">
                 <Badge pill variant="primary" className="mt-3 p-2 px-5">
@@ -48,7 +48,7 @@ const MatchScoreboard = ({ children }) => {
                 <hr />
                 <Row>
                     <Col>
-                        {round < children.length - 1 && (
+                        {round + 1 < children.length - 1 && (
                             <Button
                                 block
                                 onClick={() =>
