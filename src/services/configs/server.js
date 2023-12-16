@@ -1,6 +1,7 @@
 // const Host = "t3d.iran.liara.run";
 //const Host = "t3dweb.herokuapp.com",
-const Host = 't3d.pheelstyle.ir',
+// const Host = 't3d.pheelstyle.ir',
+const Host = 'potent-productive-chinchilla.glitch.me',
     isHttps = true;
 
 //server routes
