@@ -4,7 +4,7 @@
 * Demo: https://pya-h.github.io/t3d
 
 
-* Server side repo: https://github.com/pya-h/t3d
+* Server side repo: https://github.com/pya-h/t3dServer
 
 
 # Features:
