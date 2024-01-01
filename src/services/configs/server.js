@@ -1,7 +1,7 @@
 // const Host = "t3d.iran.liara.run";
 //const Host = "t3dweb.herokuapp.com",
 // const Host = 't3d.pheelstyle.ir',
-const Host = 'mercury-broad-meteor.glitch.me',
+const Host = 'peat-certain-streetcar.glitch.me',
     isHttps = true;
 
 //server routes
