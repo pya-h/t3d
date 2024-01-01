@@ -8,6 +8,7 @@ import GlobalSocketManager from "./services/ws/GlobalSocketManager";
 
 const App = () => {
 	const me = useSelector((state) => state.me);
+
 	return (
 		<BrowserRouter>
 			<ToastContainer />
