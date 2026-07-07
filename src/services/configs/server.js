@@ -1,4 +1,4 @@
-const Host = 't3d.onlinepricer.site',
+const Host = 't3d.texgram.com',
     isHttps = true;
 
 //server routes

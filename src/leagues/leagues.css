@@ -11,6 +11,8 @@
     border-radius: 5px;
     height: 100%;
     width: 100%;
+    -webkit-transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .expand-opacity-animation{
@@ -25,6 +27,7 @@
 
  .single-league-card:hover{
     cursor: pointer;
-    border: 1px solid;
-} 
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
 

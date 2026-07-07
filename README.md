@@ -1,11 +1,9 @@
 # 3D Online TicTacToe Game
-* Running on: https://t3d.mehrzadco.com for now.
+* Running on: https://t3d.payaina.top for now.
 * Demo: https://pya-h.github.io/t3d
 
 
 * Server side repo: https://github.com/pya-h/t3dServer
-* Server is running on https://mercury-broad-meteor.glitch.me for now.
-
 
 # Features:
 * random game

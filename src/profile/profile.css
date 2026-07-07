@@ -4,7 +4,7 @@
     border-radius: 10px;
     margin: auto;
     background-color: black;
-    text-align: right;
+    text-align: left;
     margin-top: 2%;
     padding: 3%;
     opacity: 0.8;
@@ -41,7 +41,7 @@
     background-color: white;
     color: black;
     font-size: 16px;
-    text-align: right;
+    text-align: left;
     margin-top: 1%;
 }
 

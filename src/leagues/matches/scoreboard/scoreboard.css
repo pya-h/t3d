@@ -15,7 +15,7 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     /* background-color: #d5c8f8; */
-    background-color: linear-gradient(to right, #f8f8f8, #eaeaea);
+    background: linear-gradient(to right, #f8f8f8, #eaeaea);
     /* Adjusted to a more purplish tint */
     overflow: hidden;
 }
