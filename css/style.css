@@ -1,0 +1,210 @@
+@font-face {
+    font-family: 'Vazir-Bold';
+    src: url('../fonts/Vazir-Bold.eot') format("eot"), url('../fonts/Vazir-Bold.ttf') format("truetype"), url('../fonts/Vazir-Bold.woff') format("woff"), url('../fonts/Vazir-Bold.woff2') format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: break-word;
+    /* keep the intentional global sizing/resize animations (form entrance,
+       tab-change, etc.) — refined from the original `all 1s` to a smoother 0.7s */
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;
+}
+
+body {
+    width: auto;
+    background-color: white !important;
+    background: url('../img/wall.jpg');
+    color: black;
+    direction: ltr;
+    /* keep Vazir but add a Latin fallback stack so English text stays consistent */
+    font-family: 'Vazir-Bold', 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif !important;
+    font-size: 14px !important;
+    scroll-behavior: smooth;
+}
+
+/* subtle, modern scrollbars for the many scrollable panels */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.22);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.38);
+}
+
+.animated-textbox {
+    margin-left: auto;
+    margin-right: auto;
+    width: 85%;
+    -webkit-transition: width 0.35s ease-in-out, box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: width 0.35s ease-in-out, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.animated-textbox:focus {
+    width: 100%;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+.animated-button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    line-height: 1.85rem;
+    -webkit-transition: width 0.35s ease-in-out, transform 0.18s ease, box-shadow 0.18s ease;
+    transition: width 0.35s ease-in-out, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.animated-button:hover {
+    width: 100%;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.animated-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.animated-navitem {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    border-radius: 6px;
+    -webkit-transition: width 0.35s ease-in-out, background-color 0.2s ease;
+    transition: width 0.35s ease-in-out, background-color 0.2s ease;
+}
+
+.animated-navitem:hover {
+    width: 100%;
+}
+
+.animated-navitem:focus {
+    width: 100%;
+}
+
+.animated-form {
+    opacity: 0.85;
+    -webkit-transition: opacity 0.25s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+}
+
+.animated-form:hover {
+    opacity: 1.0;
+}
+
+:invalid {
+    border-color: red !important;
+}
+
+.btn-shaking {
+    margin: auto;
+    width: 100%;
+}
+
+.btn-shaking:hover {
+    animation: shake-anim 0.5s linear infinite;
+}
+
+.txt-shaking {
+    margin: auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.txt-shaking:hover {
+    background: royalblue;
+    color: white;
+}
+
+.txt-shaking:focus {
+    animation: shake-anim 0.5s linear infinite;
+}
+
+@keyframes shake-anim {
+    0% {
+        width: 100%;
+    }
+    50% {
+        width: 90%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* gentle entrance for top-level cards */
+@keyframes card-enter {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.simple-single-card,
+.big-single-card,
+.game-deck-card,
+.chat-main-card,
+.notice-manager-card,
+.single-league-card {
+    animation: card-enter 0.4s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* TODO: Keep this or what? */
+
+@media (max-width: 1400px) and (min-width: 800px) {
+    * {
+        zoom: 0.98;
+        /* -moz-transform: scale(0.98);
+        -moz-transform-origin: 0 0; */
+    }
+}
+
+.pulsing-item {
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: pulse 1.4s ease-in-out infinite;
+}
